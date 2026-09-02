@@ -573,50 +573,71 @@ h3 {
 
 /* SKILLS */
 .skills {
-  padding-bottom: 200px;
+  padding-bottom: 80px;
 }
 
 .skills__grid {
   display: grid;
-  grid-template-columns: 380px repeat(3, 220px);
-  column-gap: 30px;
-  max-width: 1120px;
+  grid-template-columns: minmax(320px, 2fr) repeat(3, minmax(170px, 1fr));
+  column-gap: 0;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .skills__col {
   border-left: 1px solid var(--line);
-  padding-left: 50px;
+  padding: 0 28px;
   margin-top: -55px;
-  margin-left: 50px;
-  margin-right: -20px;
+  text-align: center;
+}
+
+.skills__icon-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.skills__icon-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 74px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.skills__icon-list li span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+.skills__icon-list li svg {
+  width: 32px;
+  height: 32px;
+  color: var(--red);
+  flex-shrink: 0;
 }
 
 .skills__col:last-child {
-  position: relative;
-  border-right: none;
-}
-
-.skills__col:last-child::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: -95px;
-  width: 1px;
-  background: var(--line);
+  border-right: 1px solid var(--line);
 }
 
 .skills__col:first-of-type {
   border-left: none;
-  padding-left: 0;
+  padding-left: 28px;
 }
 
 .skills__intro p {
   font-size: 16px;
   line-height: 3;
-  max-width: 38ch;
+  max-width: 30ch;
+  margin-left: 100px;
   margin-top: -40px;
+  text-align: center;
 }
 
 .skills__col h3 {
@@ -625,6 +646,7 @@ h3 {
   font-weight: 800;
   letter-spacing: 0.1em;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .skills__col li {
@@ -877,63 +899,6 @@ h3 {
   }
 }
 
-/* WHAT PEOPLE SAY ABOUT ME */
-.testimonials {
-  background: var(--red);
-  color: var(--bg);
-  min-height: 82vh;
-  padding: 72px 0;
-  text-align: center;
-}
-
-.testimonials__heading {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(34px, 4.5vw, 52px);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  margin-bottom: 60px;
-}
-
-.testimonials__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.testimonial__mark {
-  font-family: var(--display);
-  font-size: 44px;
-  line-height: 1;
-  margin-bottom: 14px;
-  opacity: 0.85;
-}
-
-.testimonial p.testimonial__quote {
-  font-size: 16px;
-  line-height: 1.8;
-  opacity: 0.9;
-}
-
-.testimonial__name {
-  display: block;
-  margin-top: 18px;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  opacity: 0.85;
-}
-
-@media (max-width: 640px) {
-  .testimonials__grid {
-    grid-template-columns: 1fr;
-    gap: 44px;
-  }
-}
-
 /* SOFT SKILLS */
 .soft-skills {
   padding: 80px 0;
@@ -1020,37 +985,6 @@ h3 {
   background: var(--red-dark);
 }
 
-.case-metabar {
-  padding: 44px 0;
-  border-bottom: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.case-metabar h4 {
-  color: var(--red);
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  margin-bottom: 14px;
-}
-
-.case-metabar__col {
-  padding-left: 24px;
-  border-left: 1px solid var(--line);
-}
-
-.case-metabar__col:first-child {
-  border-left: none;
-  padding-left: 0;
-}
-
-.case-metabar p {
-  font-size: 16px;
-  line-height: 1.7;
-}
-
 .case-block {
   padding: 70px 70px;
   border-bottom: 1px solid var(--line);
@@ -1122,28 +1056,42 @@ h3 {
   padding-top: 80px;
 }
 
+#case-title-a {
+  margin-top: 110px;
+}
+
+#case-title-k {
+  margin-top: 190px;
+}
+
+#case-title-o {
+  margin-top: 140px;
+}
+
 /* Individual image hooks for research / designprocess adjustments */
 
 .akvarie-research-1 {
-  margin-top: -100px;
-  margin-left: -280px;
+  margin-top: -130px;
+  margin-left: -270px;
 }
 
 .akvarie-research-2 {
-  margin-top: -120px;
+  margin-top: -130px;
   width: 400px;
   margin-left: 50px;
 }
 
 .akvarie-design-1 {
-  margin-top: -130px;
+  margin-top: -390px;
   margin-left: -150px;
 }
 .akvarie-design-2 {
-  margin-top: -130px;
+  margin-top: -390px;
 }
+
 .akvarie-design-3 {
   margin-left: -200px;
+  margin-top: -40px;
   min-width: 600px;
 }
 
@@ -1152,13 +1100,16 @@ h3 {
   margin-left: -250px;
   min-width: 500px;
 }
+
 .kreakassen-research-2 {
   min-width: 450px;
 }
+
 .kreakassen-design-1 {
   margin-top: -370px;
   margin-left: -102px;
 }
+
 .kreakassen-design-2 {
   min-width: 780px;
   margin-left: -280px;
@@ -1166,26 +1117,26 @@ h3 {
 }
 
 .ovartaci-research-1 {
-  margin-top: -150px;
+  margin-top: -350px;
   margin-left: -250px;
   min-width: 500px;
 }
+
 .ovartaci-research-2 {
   min-width: 450px;
 }
+
 .ovartaci-design-1 {
   margin-top: -160px;
-  margin-left: -280px;
-  min-width: 550px;
+  margin-left: -140px;
+  min-width: 500px;
 }
+
 .ovartaci-design-2 {
-  margin-top: -250px;
-  margin-left: 70px;
-  max-width: 260px;
-}
-.ovartaci-design-3 {
-  min-width: 780px;
-  margin-left: -280px;
+  margin-top: 20px;
+  margin-left: -100px;
+  max-width: 300px;
+  min-width: 420px;
 }
 
 /* image column sits next to the text on wide screens, stacks under it on small screens */
@@ -1270,14 +1221,6 @@ h3 {
 }
 
 @media (max-width: 800px) {
-  .case-metabar {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 30px;
-  }
-  .case-metabar__col:nth-child(3) {
-    border-left: none;
-    padding-left: 0;
-  }
   .case-block {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -1338,8 +1281,9 @@ h3 {
 .seal--on-red {
   position: static;
   margin: 0;
-  width: 170px;
-  height: 170px;
+  margin-top: -20px;
+  width: 82px;
+  height: 82px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1720,10 +1664,9 @@ h3 {
   }
 }
 
-/* full-height layout for the centered sections (bring / how / testimonials) */
+/* full-height layout for the centered sections (bring / how) */
 .bring,
-.how,
-.testimonials {
+.how {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -1735,8 +1678,7 @@ h3 {
   padding: 72px 0;
 }
 .bring__heading,
-.how__heading,
-.testimonials__heading {
+.how__heading {
   margin-bottom: clamp(44px, 8vh, 95px);
 }
 .bring__grid {
@@ -1756,24 +1698,117 @@ h3 {
   width: 140px;
   gap: 22px;
 }
-.testimonials__grid {
-  max-width: 1150px;
-  gap: 120px;
-  align-items: start;
-}
-.testimonial {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
 @media (max-width: 900px) {
   .bring,
-  .how,
-  .testimonials {
+  .how {
     min-height: auto;
   }
   .how__row {
     flex-wrap: wrap;
     justify-content: center;
   }
+}
+
+/* WHAT I BRING — hover tooltip */
+.bring__icon {
+  position: relative;
+}
+
+.bring__icon img {
+  transition: transform 0.25s var(--ease);
+}
+
+.bring__item:hover .bring__icon img {
+  transform: scale(1.08);
+}
+
+.bring__tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  width: 260px;
+  background: var(--bg);
+  color: var(--ink);
+  padding: 18px 20px;
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s var(--ease),
+    transform 0.25s var(--ease);
+  pointer-events: none;
+  z-index: 20;
+  text-align: center;
+}
+
+.bring__tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent var(--bg) transparent;
+}
+
+.bring__tooltip p {
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.bring__item:hover .bring__tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(14px);
+}
+
+/* SOFT SKILLS / HARD SKILLS — fold ud */
+.fold__summary {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.fold__summary::-webkit-details-marker {
+  display: none;
+}
+
+.fold__icon {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--red);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.fold__icon::before,
+.fold__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--red);
+  transform: translate(-50%, -50%);
+}
+
+.fold__icon::before {
+  width: 14px;
+  height: 2px;
+}
+
+.fold__icon::after {
+  width: 2px;
+  height: 14px;
+  transition: transform 0.25s var(--ease);
+}
+
+.fold[open] .fold__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
 }
