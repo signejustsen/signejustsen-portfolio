@@ -1812,3 +1812,140 @@ h3 {
 .fold[open] .fold__icon::after {
   transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
 }
+
+/* LUMINA AUDIT - kun Lumina */
+body:has(.ooux-img) .case-block--stacked .case-block__body {
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 70px;
+}
+
+/* Teksten */
+body:has(.ooux-img) .case-block--stacked .case-block__body > *:not(.case-block__images) {
+  width: 100%;
+  max-width: 600px;
+  min-width: 0;
+}
+
+/* Billedkolonnen */
+body:has(.ooux-img) .case-block--stacked .case-block__body > .case-block__images {
+  grid-column: 2;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+/* OOUX */
+body:has(.ooux-img) .ooux-img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Lighthouse */
+body:has(.ooux-img) .lighthouse-img {
+  width: 260px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Accessibility */
+body:has(.ooux-img) .accessibility-img {
+  width: 240px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobil */
+@media (max-width: 900px) {
+  body:has(.ooux-img) .case-block--stacked .case-block__body {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  body:has(.ooux-img) .case-block--stacked .case-block__body > .case-block__images {
+    grid-column: 1;
+    margin-top: 0;
+  }
+
+  body:has(.ooux-img) .ooux-img,
+  body:has(.ooux-img) .lighthouse-img,
+  body:has(.ooux-img) .accessibility-img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+/* =========================================================
+   LUMINA — billedplacering (rammer kun lumina.html)
+   Scopet via :has(img[src*="projects/lumina/"]), så de andre
+   projektsider (akvarie, kreakassen, ovartaci) ikke påvirkes.
+   Indsæt nederst i CSS/style.css.
+   ========================================================= */
+
+/* Tekst til venstre, billeder tæt på teksten til højre.
+   Sidste række (1fr) optager billedkolonnens ekstra højde,
+   så afstanden mellem tekstafsnittene ikke bliver strakt. */
+.case-block--stacked .case-block__body:has(img[src*="projects/lumina/"]) {
+  grid-template-columns: 50ch minmax(0, 1fr);
+  grid-template-rows: auto auto auto 1fr;
+  column-gap: 64px;
+}
+
+/* Billedkolonnen starter i højde med overskriften (AUDIT / OPTIMIZATION)
+   i stedet for det gamle faste -240px-hack */
+.case-block--stacked .case-block__body > .case-block__images:has(img[src*="projects/lumina/"]) {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  margin-top: calc(-1 * (clamp(34px, 4.6vw, 56px) * 0.86 + 28px));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  width: 100%;
+  max-width: 620px;
+}
+
+/* AUDIT: lighthouse til venstre, accessibility forskudt mod højre (ligesom research-kollagerne på de andre sider).
+   Lighthouse vises højst i naturlig størrelse (393px), ellers bliver det uskarpt. */
+.case-block--stacked .case-block__body > .case-block__images img.lighthouse-img {
+  width: min(100%, 393px);
+  margin: 0;
+}
+
+.case-block--stacked .case-block__body > .case-block__images img.accessibility-img {
+  width: min(100%, 460px);
+  align-self: flex-end;
+  margin: 0;
+}
+
+/* OPTIMIZATION: phone-billedet har meget tom plads omkring telefonerne,
+   så det beskæres til et kvadrat, og telefonerne fylder markant mere */
+.case-block--stacked .case-block__body > .case-block__images img[src*="lumina/phone-optimized"] {
+  width: min(100%, 640px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  margin: 0;
+}
+
+/* OPTIMIZATION: phone-billedet centreres lodret ud for tekstblokken */
+.case-block--stacked .case-block__body > .case-block__images:has(img[src*="lumina/phone-optimized"]) {
+  margin-top: 0;
+  align-self: center;
+}
+
+/* Smalle skærme: billeder under teksten */
+@media (max-width: 1150px) {
+  .case-block--stacked .case-block__body:has(img[src*="projects/lumina/"]) {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .case-block--stacked .case-block__body > .case-block__images:has(img[src*="projects/lumina/"]) {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 28px;
+    max-width: 100%;
+  }
+}
