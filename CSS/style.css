@@ -539,14 +539,14 @@ h3 {
   object-fit: cover;
   transform: scale(1.35);
   transform-origin: center;
-  margin-top: -100px;
+  margin-top: -70px;
 }
 
 .about__text p {
   font-size: 16px;
   line-height: 2.4;
-  max-width: 36ch;
-  margin-top: 20px;
+  max-width: 45ch;
+  margin-top: 0px;
 }
 
 .about__list {
@@ -1948,4 +1948,963 @@ body:has(.ooux-img) .accessibility-img {
     margin-top: 28px;
     max-width: 100%;
   }
+}
+
+/* ===== POSTERS project page (posters.html) ===== */
+/* all selectors are prefixed poster-/swatch so the other project pages are untouched */
+
+.poster-hero {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: var(--red);
+  padding: clamp(32px, 5vw, 64px) 0;
+}
+
+.poster-hero__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2vw, 28px);
+  align-items: start;
+}
+
+.poster-hero__grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 18px 40px rgba(33, 23, 17, 0.35);
+}
+
+.poster-hero__grid img:nth-child(2) {
+  margin-top: clamp(16px, 4vw, 56px);
+}
+
+/* BRIEF / STEPS text */
+.case-block__body em {
+  font-style: italic;
+}
+
+.poster-steps {
+  counter-reset: step;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0;
+  max-width: 70ch;
+}
+
+.poster-steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 56px 190px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.poster-steps li::before {
+  content: "0" counter(step);
+  font-family: var(--display);
+  color: var(--red);
+  font-size: 22px;
+}
+
+.poster-steps strong {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* one poster + its art direction */
+.poster-case {
+  display: grid;
+  grid-template-columns: minmax(280px, 5fr) 6fr;
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+  padding: 80px 70px;
+  border-bottom: 1px solid var(--line);
+}
+
+.poster-case--flip {
+  grid-template-columns: 6fr minmax(280px, 5fr);
+}
+
+.poster-case--flip .poster-case__figure {
+  order: 2;
+}
+
+/* the poster follows you while you read its art direction */
+.poster-case__figure {
+  margin: 0;
+  align-self: stretch;
+}
+
+.poster-case__figure img {
+  position: sticky;
+  top: 90px;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 18px 40px rgba(33, 23, 17, 0.22);
+}
+
+.poster-case__index {
+  color: var(--red-dark);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.poster-case__title {
+  color: var(--red);
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(44px, 6vw, 84px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.poster-case__body .lead {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.6;
+  max-width: 52ch;
+  margin-bottom: 14px;
+}
+
+.poster-case__desc {
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 56ch;
+  margin-bottom: 20px;
+}
+
+.poster-case__keywords {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--bg);
+  background: var(--red);
+  padding: 8px 14px;
+  margin-bottom: 40px;
+}
+
+.poster-case__label {
+  color: var(--red);
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+
+.poster-case__label--sub {
+  margin-top: 32px;
+}
+
+.poster-case__note {
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 52ch;
+}
+
+.poster-rules {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+}
+
+.poster-rules li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.poster-rules li > span {
+  font-family: var(--display);
+  color: var(--red);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.poster-rules strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.poster-rules p {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 52ch;
+}
+
+.poster-case__cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+/* colour palette */
+.swatches {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.swatches li {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgba(33, 23, 17, 0.18);
+}
+
+.swatch__name {
+  font-weight: 600;
+}
+
+.swatch__hex {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+/* typography list */
+.poster-type {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.poster-type li {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.poster-type li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.poster-type strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.poster-adapt {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.poster-adapt p {
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 56ch;
+}
+
+/* smaller hero title on this page */
+.case-hero__title--posters {
+  font-size: clamp(44px, 9vw, 100px);
+}
+
+@media (max-width: 900px) {
+  .poster-case,
+  .poster-case--flip {
+    grid-template-columns: 1fr;
+    padding: 56px 0;
+  }
+  .poster-case--flip .poster-case__figure {
+    order: 0;
+  }
+  .poster-case__figure {
+    max-width: 480px;
+  }
+  .poster-case__figure img {
+    position: static;
+  }
+  .case-block__body p {
+    min-width: 0;
+  }
+  .poster-steps li {
+    grid-template-columns: 40px 1fr;
+  }
+  .poster-steps li span {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .poster-hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .poster-hero__grid img:nth-child(2) {
+    margin-top: 0;
+  }
+  .poster-case__cols {
+    grid-template-columns: 1fr;
+  }
+  .poster-page .case-block {
+    padding: 48px 0;
+  }
+  .poster-page .case-block__body p {
+    line-height: 1.9;
+  }
+}
+
+.poster-case__tool {
+  margin: 2rem 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #777570;
+}
+/* =====================================================================
+   POLISH — sections, project pages, footer
+   ===================================================================== */
+
+/* ---------- 1. Work cards ---------- */
+.project-card:hover {
+  opacity: 1;
+}
+
+.project-card__text h3 {
+  transition: color 0.25s var(--ease), transform 0.35s var(--ease);
+}
+
+.project-card__index {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 26px;
+  color: var(--red);
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+
+.project-card:hover::after {
+  transform: scaleX(1);
+}
+
+.project-card:hover .project-card__text h3 {
+  color: var(--red);
+  transform: translateX(10px);
+}
+
+.project-card:hover .project-card__arrow svg {
+  transform: translateX(8px);
+}
+
+/* ---------- 2. Project pages ---------- */
+.case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+}
+
+.case-tags li {
+  border: 1px solid var(--red);
+  color: var(--red);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.next-project {
+  display: block;
+  margin-top: 40px;
+  padding: clamp(48px, 7vw, 96px) var(--gutter);
+  background: var(--red);
+  color: var(--bg);
+  overflow: hidden;
+  position: relative;
+  transition: background 0.35s var(--ease);
+}
+
+.next-project__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.next-project__title {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--display);
+  font-size: clamp(48px, 9vw, 150px);
+  line-height: 0.9;
+  text-transform: uppercase;
+  transition: transform 0.5s var(--ease);
+}
+
+.next-project svg {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(48px, 7vw, 96px);
+  width: clamp(40px, 6vw, 88px);
+  height: auto;
+  transition: transform 0.4s var(--ease);
+}
+
+.next-project:hover {
+  background: var(--red-dark);
+}
+
+.next-project:hover .next-project__title {
+  transform: translateX(16px);
+}
+
+.next-project:hover svg {
+  transform: translateX(12px);
+}
+
+/* ---------- 3. Footer ---------- */
+.ft {
+  background: var(--red);
+  color: var(--bg);
+  padding: clamp(64px, 8vw, 110px) 0 0;
+  overflow: hidden;
+}
+
+.ft__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-bottom: 18px;
+}
+
+.ft__mail {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: clamp(40px, 8.2vw, 132px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  word-break: break-word;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s var(--ease), transform 0.4s var(--ease);
+}
+
+.ft__mail:hover {
+  border-color: var(--bg);
+  transform: translateX(10px);
+}
+
+.ft__row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: clamp(24px, 5vw, 80px);
+  align-items: start;
+  margin-top: clamp(40px, 6vw, 72px);
+  padding-top: 28px;
+  border-top: 1px solid var(--line-on-red);
+}
+
+.ft__row p {
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 44ch;
+}
+
+.ft__avail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+}
+
+.ft__links {
+  display: flex;
+  flex-direction: column;
+}
+
+.ft__links a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 12px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--line-on-red);
+  transition: padding-left 0.3s var(--ease);
+}
+
+.ft__links a:hover {
+  padding-left: 10px;
+}
+
+.ft__links svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ft__marquee {
+  margin-top: clamp(48px, 7vw, 96px);
+  border-top: 1px solid var(--line-on-red);
+  border-bottom: 1px solid var(--line-on-red);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 18px 0 8px;
+}
+
+.ft__track {
+  display: inline-flex;
+  animation: ft-marquee 36s linear infinite;
+  font-family: var(--display);
+  font-size: clamp(56px, 11vw, 180px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.ft__marquee:hover .ft__track {
+  animation-play-state: paused;
+}
+
+.ft__track span {
+  padding-right: 0.5em;
+}
+
+.ft__track span:nth-child(even) {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--bg);
+}
+
+@keyframes ft-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ft__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-top: 22px;
+  padding-bottom: 26px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.ft__bottom img {
+  width: 34px;
+  height: auto;
+}
+
+/* ---------- 4. Hard skills: keep headings on one line ---------- */
+.skills__col h3 {
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* ---------- Responsive + reduced motion ---------- */
+@media (max-width: 900px) {
+  .ft__row {
+    grid-template-columns: 1fr;
+  }
+  .case-block:not(.case-block--stacked) .case-block__label {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft__track {
+    animation: none;
+  }
+  .project-card::after,
+  .project-card__text h3,
+  .next-project__title {
+    transition: none;
+  }
+}
+/* =====================================================================
+   POLISH 2 — hard skills layout, footer rebalance, next-project arrow
+   ===================================================================== */
+
+/* ---------- Hard skills: three big columns, no intro text ---------- */
+.skills__intro {
+  display: none;
+}
+
+.skills__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: none;
+  margin: 0;
+  column-gap: 0;
+}
+
+.skills__col {
+  margin-top: 0;
+  padding: 0 clamp(24px, 3vw, 56px);
+  text-align: left;
+  border-left: 1px solid var(--line);
+  border-right: none;
+}
+
+.skills__col:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.skills__col:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+.skills__col h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(30px, 3.4vw, 48px);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: normal;
+  margin-bottom: 26px;
+}
+
+.skills__icon-list {
+  align-items: stretch;
+  gap: 0;
+}
+
+.skills__icon-list li {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin: 0;
+  padding: 15px 0;
+  border-top: 1px solid var(--line);
+  text-align: left;
+}
+
+.skills__icon-list li span {
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.skills__icon-list li svg {
+  width: 42px;
+  height: 42px;
+}
+
+@media (max-width: 900px) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+    row-gap: 48px;
+  }
+  .skills__col,
+  .skills__col:first-child,
+  .skills__col:last-child {
+    padding: 0;
+    border-left: none;
+  }
+}
+
+/* ---------- Footer: links up top, full height ---------- */
+.ft__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: stretch;
+}
+
+.ft__links {
+  height: 100%;
+  border-top: 1px solid var(--line-on-red);
+}
+
+.ft__links a {
+  flex: 1 1 0;
+  margin: 0;
+  padding: 0;
+  font-size: clamp(16px, 1.5vw, 20px);
+}
+
+/* the text row lines up with the links column above it */
+.ft__row {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+
+/* the email always breaks at <br>, never mid-word */
+.ft__mail {
+  font-size: clamp(40px, 7vw, 120px);
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* slightly smaller marquee text */
+.ft__track {
+  font-size: clamp(44px, 8.5vw, 140px);
+}
+
+@media (max-width: 900px) {
+  .ft__top,
+  .ft__row {
+    grid-template-columns: 1fr;
+  }
+  .ft__links a {
+    padding: 18px 0;
+  }
+}
+
+/* ---------- Next project: arrow no longer sits on top of the title ---------- */
+.next-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: clamp(16px, 3vw, 48px);
+}
+
+.next-project__eyebrow {
+  grid-column: 1 / -1;
+}
+
+.next-project__title {
+  font-size: clamp(44px, 8vw, 130px);
+}
+
+.next-project svg {
+  position: static;
+  width: clamp(36px, 5vw, 80px);
+  margin-bottom: 0.4em;
+}
+
+/* =====================================================================
+   POLISH 3 — footer middle row + clearer bottom of project pages
+   ===================================================================== */
+
+/* ---------- Footer middle row: bold line left, thin text right, centred ---------- */
+.ft__row {
+  margin-top: clamp(32px, 4vw, 56px);
+  padding: 30px 0;
+  align-items: center;
+}
+
+.ft__avail {
+  white-space: nowrap;
+  font-size: clamp(13px, 1.2vw, 16px);
+}
+
+.ft__marquee {
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .ft__avail {
+    white-space: normal;
+  }
+}
+
+/* ---------- Bottom of project pages: cream band, so it no longer melts into the red footer ---------- */
+.next-project {
+  background: var(--bg);
+  color: var(--red);
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+.next-project:hover {
+  background: var(--red-dark);
+  color: var(--bg);
+}
+
+/* =====================================================================
+   POLISH 4 — hero→work spacing, soft skills, tool tag, bottom band
+   ===================================================================== */
+
+/* ---------- Bottom band on project pages: smaller than the mail ---------- */
+.next-project {
+  padding: clamp(32px, 4vw, 56px) var(--gutter);
+}
+
+.next-project__eyebrow {
+  font-size: 12px;
+}
+
+.next-project__title {
+  font-size: clamp(26px, 3.6vw, 56px);
+  line-height: 1;
+  margin-top: 10px;
+}
+
+.next-project svg {
+  width: clamp(28px, 3.5vw, 52px);
+  margin-bottom: 0.2em;
+}
+
+/* ---------- Hero → Work: no double scroll hint, tighter gap ---------- */
+.hero {
+  padding-bottom: 90px;
+}
+
+.hero__bottom,
+.work .eyebrow-arrow {
+  display: none;
+}
+
+.work {
+  margin-top: 0;
+  padding-top: 72px;
+}
+
+.work .section-head {
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  margin-bottom: 48px;
+  padding-left: 0;
+}
+
+.work .section-head h2 {
+  grid-row: 1;
+}
+
+.work .section-head p {
+  grid-row: 1;
+  justify-self: end;
+  text-align: right;
+  padding-top: 0;
+}
+
+/* ---------- Soft skills: big tiles ---------- */
+.soft-skills__intro-text {
+  max-width: 62ch;
+  margin: 0 0 40px;
+  font-size: clamp(18px, 1.8vw, 20px);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.soft-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  margin-bottom: 40px;
+}
+
+.soft-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: clamp(150px, 15vw, 220px);
+  padding: 22px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+.soft-tile__num {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  transition: color 0.35s var(--ease);
+}
+
+.soft-tile__word {
+  font-family: var(--display);
+  font-size: clamp(22px, 2.4vw, 38px);
+  overflow-wrap: anywhere;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--red);
+  transition: color 0.35s var(--ease), transform 0.4s var(--ease);
+}
+
+.soft-tile:hover {
+  background: var(--red);
+}
+
+.soft-tile:hover .soft-tile__num,
+.soft-tile:hover .soft-tile__word {
+  color: var(--bg);
+}
+
+.soft-tile:hover .soft-tile__word {
+  transform: translateY(-6px);
+}
+
+@media (max-width: 900px) {
+  .soft-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Tool tag on the poster pages: a pill next to the keywords ---------- */
+.poster-case__tool {
+  display: inline-block;
+  margin: 0 0 40px 8px;
+  padding: 7px 14px;
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  vertical-align: top;
 }
